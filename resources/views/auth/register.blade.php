@@ -1,13 +1,21 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
+
+            <div class="flex items-left justify-end">
+            <a class="text-sm text-gray-600 hover:text-blue-600" href="{{ route('login') }}" class="ml-4 text-sm text-white"> {{ __('Login') }}</a>
+            </div>
+
+            <div align="center">
+            <x-jet-authentication-card-logo />
+            </div>
 
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
