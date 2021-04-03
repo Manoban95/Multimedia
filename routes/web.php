@@ -12,15 +12,23 @@ Route::get('/', function () {
 Route::get('/suma/{num1}/{num2}','WebController@suma');	
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+/*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('home');
+})->name('dashboard');*/
 
-//Route::middleware(['auth:sanctum', 'verified'])->get('/home', 'LoanController@all')->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'GameController@index')->name('dashboard');
 
  Route::group(['middleware' => ['auth']], function(){
 
 //BOOK
+
+//GAME
+Route::get('/games/{game}','GameController@juego1');
+
+//SCORE
+Route::post('/scores','ScoreController@store');
+
+Route::put('/scores', 'ScoreController@update');
 
 Route::get('/books','BookController@index');
 

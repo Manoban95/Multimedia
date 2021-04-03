@@ -18,7 +18,7 @@ class CategoryController extends Controller
         if(Auth::user()->hasPermissionTo('crud categories')){
 
 
-          $categories = Category::all();
+        $categories = Category::all();
         return view('categories.index', compact('categories'));
 
         }else
